@@ -8,3 +8,6 @@ router.get('/get/:id',getSingleBooksById);
 router.post('/add',addNewBooks);
 router.put('/update/:id',updateBooks);
 router.delete('/delete/:id',deleteBooks);
+
+// module.exports = router;
+module.exports = router;
