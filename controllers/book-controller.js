@@ -54,9 +54,65 @@ const addNewBooks = async (req, res)=>{
   }
 }
 
-const updateBooks = async (req, res)=>{
+// const updateBooks = async (req, res)=>{
+//   try{
+//     const getUpadteBookBYBody = req.body;
+//     const getUpdateBookByID = req.params.id;
+//     const getUpdateBookDetail = await Book.findByIdAndUpdate(getUpdateBookByID, getUpadteBookBYBody, 
+//       {
+//         new : true,
+//       }
+//     );
+//     if(!getUpdateBookDetail){
+//       return res.status(404).json({
+//           success:false,
+//           msg: "which book you wnat fro update not found !!",
+//       });
+//     }
+//     else{
+//       res.status(200).json({
+//         success:true,
+//         data : getUpdateBookDetail,
+//       });
+//     }
+//   }catch(err){
+//      console.log(err);
+//   }
+  
+// }
 
-}
+const updateBooks = async (req, res) => {
+  try {
+    const updateData = req.body;
+    const bookId = req.params.id;
+
+    const updatedBook = await Book.findByIdAndUpdate(
+      bookId,
+      updateData,
+      { new: true }
+    );
+
+    if (!updatedBook) {
+      return res.status(404).json({
+        success: false,
+        msg: "The book you want to update was not found!",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: updatedBook,
+    });
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      success: false,
+      msg: "Server error",
+    });
+  }
+};
+
 
 const deleteBooks = async (req, res) => {
   try {
