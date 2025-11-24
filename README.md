@@ -29,3 +29,50 @@ Server running on port 3000
 
 MongoDB Connected Successfully
 
+Now the API is ready to test in Postman.
+
+API Endpoints
+
+Add a new book (POST):
+http://localhost:3000/api/books/add
+
+Send JSON body with: title, author, year
+
+Get all books (GET):
+http://localhost:3000/api/books/get
+
+Get book by ID (GET):
+http://localhost:3000/api/books/get/bookId
+
+Update a book (PUT):
+http://localhost:3000/api/books/update/bookId
+
+Send updated fields in body
+
+Delete a book (DELETE):
+http://localhost:3000/api/books/delete/bookId
+
+Project Structure
+
+BookStoreAPI
+
+server.js
+
+Database/db.js
+
+Models/book.js
+
+Controllers/book-controller.js
+
+Routes/book-routes.js
+
+.env
+
+package.json
+
+Tech Used
+
+Node.js
+Express.js
+MongoDB
+Mongoose
